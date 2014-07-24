@@ -1,0 +1,15 @@
+
+<div class="create-task-container">
+	<input type="text" id="new-task" />
+	<span id="create-task" ng-click="newTask()">
+		<i class="glyphicon glyphicon-play"></i>
+	</span>
+</div>
+
+<div class="running-tasks-container">
+	<div ng-repeat="task in RunningTasks">
+		<span class="status"></span>
+		<span class="name" ng-bind-template="{{task.title}}"></span>
+		<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
+	</div>
+</div>
