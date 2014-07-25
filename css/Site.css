@@ -11,6 +11,6 @@
 .running-tasks-container .running-task { padding:10px; font-size:20px; border-bottom:solid 1px #ccc; }
 .running-tasks-container .running-task:nth-child(even) { background-color:#56BAEC; }
 .running-tasks-container .running-task:nth-child(odd) { background-color:#B4D8E7; }
-.running-tasks-container .running-task .status {  }
+.running-tasks-container .running-task .status { cursor:pointer; }
 .running-tasks-container .running-task .name {  }
 .running-tasks-container .running-task .time-elapsed {  }
