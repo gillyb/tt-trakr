@@ -9,8 +9,10 @@
 </div>
 
 <div class="running-tasks-container">
-	<div class="running-task" ng-repeat="task in RunningTasks">
-		<span class="status"></span>
+	<div class="running-task" ng-repeat="task in RunningTasks" data-task-id="task.id">
+		<span class="status" ng-click="toggleTaskStatus(task.id)">
+			<i class="glyphicon" ng-class="{'glyphicon-pause':task.running, 'glyphicon-play':!task.running}"></i>
+		</span>
 		<span class="name" ng-bind-template="{{task.title}}"></span>
 		<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
 	</div>

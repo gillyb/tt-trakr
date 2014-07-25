@@ -7,6 +7,13 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		$scope.RunningTasks = TaskManager.tasks;
 	};
 
+	$scope.toggleTaskStatus = function(taskId) {
+		var task = TaskManager.get(taskId);
+		if (task.running) task.pause();
+		else task.start();
+		$scope.RunningTasks = TaskManager.tasks;
+	};
+
 	$interval(function() {
 		$scope.RunningTasks = TaskManager.tasks;
 	}, 1000);
