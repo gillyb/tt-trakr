@@ -5,18 +5,26 @@ function Task(title) {
 
 	this.startTime = new Date();
 	this.endTime;
-	this.timeElapsed = 0;
 	this.title = title;
 	this.done = false;
 	this.running = false;
 
 	var timer;
+	var timeElapsed = 0;
+
+	this.__defineGetter__("timeElapsed", function() {
+		var totalSeconds = timeElapsed;
+		var hours = Math.floor(totalSeconds / 3600);
+		var minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
+		var seconds = Math.floor(totalSeconds - (hours * 3600) - (minutes * 60));
+		return hours.toString().padNum(2) + ':' + minutes.toString().padNum(2) + ':' + seconds.toString().padNum(2);
+	});
 
 	this.start = function() {
 		if (this.running) return;
 		var self = this;
 		timer = setInterval(function() {
-			self.timeElapsed++;
+			timeElapsed++;
 		}, 1000);
 		this.running = true;
 	};
@@ -34,7 +42,6 @@ function Task(title) {
 		this.done = true;
 		this.endTime = new Date();
 	};
-
 }
 
 Task.prototype.createId = function() {
