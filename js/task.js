@@ -50,3 +50,13 @@ Task.prototype.createId = function() {
   	}
   	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 };
+
+Task.prototype.fromJson = function(task) {
+	this.id = task.id;
+	this.title = task.title;
+	this.startTime = task.startTime;
+	this.endTime = task.endTime;
+	this.done = task.done;
+	this.running = task.running;
+	return this;
+};

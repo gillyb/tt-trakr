@@ -23,7 +23,13 @@ taskService.factory('TaskManager', ['$http', '$q', function($http, $q) {
 
 		loadTasks: function() {
 			var buffer = fs.readFileSync('/tasks.dat');
-			this.tasks = JSON.parse(buffer.toString());
+			var fileTasks = JSON.parse(buffer.toString());
+			var tasks = this.tasks;
+			debugger;
+			fileTasks.forEach(function(task) {
+				tasks.push(new Task(task.title).fromJson(task));
+			});
+			this.tasks = tasks;
 		},
 		saveTasks: function() {
 			var buffer = new Buffer(JSON.stringify(this.tasks));
