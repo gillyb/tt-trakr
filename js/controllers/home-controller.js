@@ -21,6 +21,7 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		$scope.RunningTasks = TaskManager.tasks;
 	};
 
+	TaskManager.loadTasks();
 	$interval(function() {
 		$scope.RunningTasks = TaskManager.tasks;
 	}, 1000);
