@@ -6,6 +6,9 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 
 	// TODO: extract this to some global directive
 	win.on('close', function() {
+		TaskManager.tasks.forEach(function(task) {
+			task.pause();
+		});
 		TaskManager.saveTasks();
 		this.close(true);
 	});

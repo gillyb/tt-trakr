@@ -25,7 +25,6 @@ taskService.factory('TaskManager', ['$http', '$q', function($http, $q) {
 			var buffer = fs.readFileSync('/tasks.dat');
 			var fileTasks = JSON.parse(buffer.toString());
 			var tasks = this.tasks;
-			debugger;
 			fileTasks.forEach(function(task) {
 				tasks.push(new Task(task.title).fromJson(task));
 			});

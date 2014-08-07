@@ -10,10 +10,10 @@ function Task(title) {
 	this.running = false;
 
 	var timer;
-	var timeElapsed = 0;
+	this.totalSeconds = 0;
 
 	this.__defineGetter__("timeElapsed", function() {
-		var totalSeconds = timeElapsed;
+		var totalSeconds = this.totalSeconds;
 		var hours = Math.floor(totalSeconds / 3600);
 		var minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
 		var seconds = Math.floor(totalSeconds - (hours * 3600) - (minutes * 60));
@@ -24,7 +24,7 @@ function Task(title) {
 		if (this.running) return;
 		var self = this;
 		timer = setInterval(function() {
-			timeElapsed++;
+			self.totalSeconds++;
 		}, 1000);
 		this.running = true;
 	};
@@ -58,5 +58,6 @@ Task.prototype.fromJson = function(task) {
 	this.endTime = task.endTime;
 	this.done = task.done;
 	this.running = task.running;
+	this.totalSeconds = task.totalSeconds;
 	return this;
 };
