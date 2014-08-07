@@ -1,6 +1,15 @@
 
 app.controller('HomeController', function($scope, $http, $location, $routeParams, $interval, TaskManager) {
 
+	var nw = require('nw.gui');
+	var win = nw.Window.get();
+
+	// TODO: extract this to some global directive
+	win.on('close', function() {
+		TaskManager.saveTasks();
+		this.close(true);
+	});
+
 	$('#new-task').keypress(function(e) {
 		if (e.keyCode == 13) {
 			$scope.newTask();
