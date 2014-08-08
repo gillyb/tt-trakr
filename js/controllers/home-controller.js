@@ -16,6 +16,7 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 	$('#new-task').keypress(function(e) {
 		if (e.keyCode == 13) {
 			$scope.newTask();
+			$('#new-task').val('');
 			$('#new-task').focus();
 		}
 	});
@@ -23,21 +24,20 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 	$scope.newTask = function() {
 		var taskName = $('#new-task').val();
 		TaskManager.newTask(taskName);
-		$scope.RunningTasks = TaskManager.tasks;
-		$('#new-task').val('');
+		refreshTasks();
 	};
 
 	$scope.toggleTaskStatus = function(taskId) {
 		var task = TaskManager.get(taskId);
 		if (task.running) task.pause();
 		else task.start();
-		$scope.RunningTasks = TaskManager.tasks;
+		refreshTasks();
 	};
 
 	$scope.markAsDone = function(taskId) {
 		var task = TaskManager.get(taskId);
 		task.markAsDone();
-		$scope.RunningTasks = TaskManager.tasks;
+		refreshTasks();
 	};
 
 	function initWindow() {
@@ -49,10 +49,21 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		});
 	}
 
+	function refreshTasks() {
+		var runningTasks = [];
+		var doneTasks = [];
+		TaskManager.tasks.forEach(function(task) {
+			if (task.done)
+				doneTasks.push(task);
+			else
+				runningTasks.push(task);
+		});
+		$scope.RunningTasks = runningTasks;
+		$scope.DoneTasks = doneTasks;
+	}
+
 	TaskManager.loadTasks();
-	$interval(function() {
-		$scope.RunningTasks = TaskManager.tasks;
-	}, 1000);
+	$interval(refreshTasks, 1000);
 	$timeout(initWindow);
 
 });

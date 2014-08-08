@@ -36,8 +36,7 @@ function Task(title) {
 	};
 
 	this.markAsDone = function() {
-		if (!this.running)
-			clearInterval(timer);
+		clearInterval(timer);
 		this.running = false;
 		this.done = true;
 		this.endTime = new Date();

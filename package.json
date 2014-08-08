@@ -2,6 +2,11 @@
 	"name": "tt-trakr",
 	"main": "index.html",
 	"window": {
+		"title": "TimeTrakr",
+		"icon": "icon.png",
+		"toolbar": false,
+		"width": 400,
+		"height": 500,
 		"show": false
 	}
 }

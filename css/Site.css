@@ -16,3 +16,7 @@
 .running-tasks-container .running-task .time-elapsed {  }
 .running-tasks-container .running-task .mark-as-done { font-size:12px; position:absolute; right:100px; bottom:12px; text-decoration:underline; cursor:pointer; }
 .running-tasks-container .running-task .mark-as-done:hover { text-decoration:none; }
+
+.container-title { padding:2px 12px; background-color:#eee; font-weight:bold; border-bottom:solid 1px #ccc; }
+.done-task { padding:4px 12px; border-bottom:solid 1px #ccc; position:relative; }
+.done-task .strikethrough { height:1px; width:96%; background-color:#ccc; top:14px; z-index:2; position:absolute; }

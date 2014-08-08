@@ -18,3 +18,13 @@
 		<span class="mark-as-done pull-right hidden" ng-click="markAsDone(task.id)">Mark as done</span>
 	</div>
 </div>
+<div class="container-title" ng-if="DoneTasks.length > 0">
+	Done
+</div>
+<div class="done-tasks-container">
+	<div class="done-task" ng-repeat="task in DoneTasks" data-task-id="task.id">
+		<span class="strikethrough"></span>
+		<span class="name" ng-bind-template="{{task.title}}"></span>
+		<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
+	</div>
+</div>
