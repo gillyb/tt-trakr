@@ -15,5 +15,6 @@
 		</span>
 		<span class="name" ng-bind-template="{{task.title}}"></span>
 		<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
+		<span class="mark-as-done pull-right hidden" ng-click="markAsDone(task.id)">Mark as done</span>
 	</div>
 </div>

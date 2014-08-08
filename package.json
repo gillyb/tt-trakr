@@ -1,4 +1,7 @@
 {
 	"name": "tt-trakr",
-	"main": "index.html"
+	"main": "index.html",
+	"window": {
+		"show": false
+	}
 }

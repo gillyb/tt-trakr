@@ -8,9 +8,11 @@
 
 /* 56BAEC, B4D8E7 */
 .running-tasks-container {  }
-.running-tasks-container .running-task { padding:10px; font-size:20px; border-bottom:solid 1px #ccc; }
+.running-tasks-container .running-task { padding:10px; font-size:20px; border-bottom:solid 1px #ccc; position:relative; }
 .running-tasks-container .running-task:nth-child(even) { background-color:#56BAEC; }
 .running-tasks-container .running-task:nth-child(odd) { background-color:#B4D8E7; }
 .running-tasks-container .running-task .status { cursor:pointer; }
 .running-tasks-container .running-task .name {  }
 .running-tasks-container .running-task .time-elapsed {  }
+.running-tasks-container .running-task .mark-as-done { font-size:12px; position:absolute; right:100px; bottom:12px; text-decoration:underline; cursor:pointer; }
+.running-tasks-container .running-task .mark-as-done:hover { text-decoration:none; }
