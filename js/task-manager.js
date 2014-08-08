@@ -22,7 +22,18 @@ taskService.factory('TaskManager', ['$http', '$q', function($http, $q) {
 		},
 
 		loadTasks: function() {
-			var buffer = fs.readFileSync('/tasks.dat');
+			var buffer;
+			try {
+				buffer = fs.readFileSync('./tasks.dat');
+			}
+			catch (e) {
+				if (fs.existsSync('./tasks.dat')) {
+					// TODO: display some error message
+					// TODO: and explain that we're creating a new file
+				}
+
+				buffer = new Buffer('[]');
+			}
 			var fileTasks = JSON.parse(buffer.toString());
 			var tasks = this.tasks;
 			fileTasks.forEach(function(task) {
@@ -32,7 +43,7 @@ taskService.factory('TaskManager', ['$http', '$q', function($http, $q) {
 		},
 		saveTasks: function() {
 			var buffer = new Buffer(JSON.stringify(this.tasks));
-			var fd = fs.openSync('/tasks.dat', 'w+');
+			var fd = fs.openSync('./tasks.dat', 'w+');
 			fs.writeSync(fd, buffer, 0, buffer.length, 0);
 		}
 	}
