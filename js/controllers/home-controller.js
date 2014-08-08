@@ -13,10 +13,6 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		this.close(true);
 	});
 
-	win.on('focus', function() {
-		$('#new-task').focus();
-	});
-
 	$('#new-task').keypress(function(e) {
 		if (e.keyCode == 13) {
 			$scope.newTask();
