@@ -45,6 +45,12 @@ taskService.factory('TaskManager', ['$http', '$q', function($http, $q) {
 			var buffer = new Buffer(JSON.stringify(this.tasks));
 			var fd = fs.openSync('./tasks.dat', 'w+');
 			fs.writeSync(fd, buffer, 0, buffer.length, 0);
+		},
+		remove: function(taskId) {
+			for (var i=0; i<this.tasks.length; i++) {
+				if (this.tasks[i].id === taskId)
+					this.tasks.splice(i, 1);
+			}
 		}
 	}
 

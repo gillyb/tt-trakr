@@ -39,12 +39,16 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		task.markAsDone();
 		refreshTasks();
 	};
+	$scope.removeTask = function(taskId) {
+		TaskManager.remove(taskId);
+		refreshTasks();
+	};
 
 	$scope.minimizeWindow = function() {
 		win.minimize();
 	};
 	$scope.closeWindow = function() {
-		win.close(true);
+		win.close();
 	};
 
 	function initWindow() {
@@ -53,6 +57,12 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		})
 		$('.running-tasks-container').delegate('.running-task', 'mouseout', function() {
 			$(this).find('.mark-as-done').addClass('hidden');
+		});
+		$('.done-tasks-container').delegate('.done-task', 'mouseover', function() {
+			$(this).find('.remove-task').removeClass('hidden');
+		});
+		$('.done-tasks-container').delegate('.done-task', 'mouseout', function() {
+			$(this).find('.remove-task').addClass('hidden');
 		});
 	}
 

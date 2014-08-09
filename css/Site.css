@@ -16,12 +16,14 @@ body { overflow:hidden; }
 .running-tasks-container .running-task .status { cursor:pointer; font-size:16px; margin-left:5px; }
 .running-tasks-container .running-task .name {  }
 .running-tasks-container .running-task .time-elapsed {  }
-.running-tasks-container .running-task .mark-as-done { font-size:12px; position:absolute; right:100px; bottom:12px; text-decoration:underline; cursor:pointer; }
+.running-tasks-container .running-task .mark-as-done { font-size:12px; position:absolute; right:90px; bottom:8px; text-decoration:underline; cursor:pointer; }
 .running-tasks-container .running-task .mark-as-done:hover { text-decoration:none; }
 
 .container-title { padding:2px 12px; background-color:#eee; font-weight:bold; border-bottom:solid 1px #ccc; }
 .done-task { padding:4px 12px; border-bottom:solid 1px #ccc; position:relative; }
 .done-task .strikethrough { height:1px; width:96%; background-color:#ccc; top:14px; z-index:2; position:absolute; }
+.done-task .remove-task { background-color:#EE5050; border-radius:4px; margin-right:8px; text-align:center; position:absolute; right:66px; z-index:3; width:19px; height:20px; border:solid 2px #fff; cursor:pointer; }
+.done-task .remove-task i { font-size:11px; vertical-align:text-top; color:#fff; }
 
 .window-header { background-color:#428bca; padding:4px 6px; color:#fff; }
 .window-header .exit { background-color:transparent; display:inline-block; width:24px; height:22px; color:#ccc; padding:2px 5px; cursor:pointer; margin-top:-1px;}

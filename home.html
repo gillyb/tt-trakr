@@ -26,7 +26,7 @@
 			</span>
 			<span class="name" ng-bind-template="{{task.title}}"></span>
 			<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
-			<span class="mark-as-done pull-right hidden" ng-click="markAsDone(task.id)">Mark as done</span>
+			<span class="mark-as-done pull-right hidden" ng-click="markAsDone(task.id)">Done</span>
 		</div>
 	</div>
 	<div class="container-title" ng-if="DoneTasks.length > 0">
@@ -37,6 +37,9 @@
 			<span class="strikethrough"></span>
 			<span class="name" ng-bind-template="{{task.title}}"></span>
 			<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
+			<span class="remove-task pull-right hidden" ng-click="removeTask(task.id)">
+				<i class="glyphicon glyphicon-remove"></i>
+			</span>
 		</div>
 	</div>
 </div>
