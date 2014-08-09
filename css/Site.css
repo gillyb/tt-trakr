@@ -22,3 +22,8 @@
 .done-task .strikethrough { height:1px; width:96%; background-color:#ccc; top:14px; z-index:2; position:absolute; }
 
 .window-header { background-color:#428bca; padding:4px 6px; color:#fff; }
+.window-header .exit { background-color:transparent; display:inline-block; width:24px; height:22px; color:#ccc; padding:2px 5px; cursor:pointer; margin-top:-1px;}
+.window-header .exit:hover { background-color:#EE5050; color:#fff; }
+.window-header .minimize { background-color:transparent; display:inline-block; width:24px; height:22px; color:#ccc;padding:2px 5px; cursor:pointer; margin-top:-1px;}
+.window-header .minimize i { margin-top:5px; }
+.window-header .minimize:hover { background-color:#ccc; color:#fff; }

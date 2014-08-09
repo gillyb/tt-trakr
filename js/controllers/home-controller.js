@@ -40,6 +40,13 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		refreshTasks();
 	};
 
+	$scope.minimizeWindow = function() {
+		win.minimize();
+	};
+	$scope.closeWindow = function() {
+		win.close(true);
+	};
+
 	function initWindow() {
 		$('.running-tasks-container').delegate('.running-task', 'mouseover', function() {
 			$(this).find('.mark-as-done').removeClass('hidden');
