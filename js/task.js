@@ -20,6 +20,16 @@ function Task(title) {
 		return hours.toString().padNum(2) + ':' + minutes.toString().padNum(2) + ':' + seconds.toString().padNum(2);
 	});
 
+	this.__defineGetter__("hours", function() {
+		return Math.floor(this.totalSeconds / 3600).toString().padNum(2);
+	});
+	this.__defineGetter__("minutes", function() {
+		return Math.floor((this.totalSeconds - (this.hours * 3600)) / 60).toString().padNum(2);
+	});
+	this.__defineGetter__("seconds", function() {
+		return Math.floor(this.totalSeconds - (this.hours * 3600) - (this.minutes * 60)).toString().padNum(2);
+	});
+
 	this.start = function() {
 		if (this.running) return;
 		var self = this;
