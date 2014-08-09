@@ -1,5 +1,5 @@
 
-.main-container { margin:0; padding:0; }
+.main-container { margin:0; padding:0; font-family:Helvetica; }
 
 .create-task-container { height:60px; background-color:#eee; padding:10px; border-bottom:solid 1px #ccc; }
 .create-task-container .input-wrapper { margin-right:100px; }
@@ -20,3 +20,5 @@
 .container-title { padding:2px 12px; background-color:#eee; font-weight:bold; border-bottom:solid 1px #ccc; }
 .done-task { padding:4px 12px; border-bottom:solid 1px #ccc; position:relative; }
 .done-task .strikethrough { height:1px; width:96%; background-color:#ccc; top:14px; z-index:2; position:absolute; }
+
+.window-header { background-color:#428bca; padding:4px 6px; color:#fff; }

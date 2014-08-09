@@ -5,6 +5,7 @@
 		"title": "TimeTrakr",
 		"icon": "icon.png",
 		"toolbar": false,
+		"frame": false,
 		"width": 400,
 		"height": 500,
 		"show": false
