@@ -1,11 +1,14 @@
 
 <div class="window-header" style="-webkit-app-region: drag">
 	<span class="title" style="-webkit-app-region: drag">TimeTrakr</span>
-	<span class="exit pull-right" style="-webkit-app-region: no-drag" ng-click="closeWindow()">
+	<span class="header-btn exit pull-right" style="-webkit-app-region: no-drag" ng-click="closeWindow()">
 		<i class="glyphicon glyphicon-remove"></i>
 	</span>
-	<span class="minimize pull-right" style="-webkit-app-region: no-drag" ng-click="minimizeWindow()">
+	<span class="header-btn minimize pull-right" style="-webkit-app-region: no-drag" ng-click="minimizeWindow()">
 		<i class="glyphicon glyphicon-minus"></i>
+	</span>
+	<span class="header-btn settings pull-right" style="-webkit-app-region: no-drag" ng-click="openSettings()">
+		<i class="glyphicon glyphicon-cog"></i>
 	</span>
 </div>
 
@@ -42,5 +45,12 @@
 				<i class="glyphicon glyphicon-remove"></i>
 			</span>
 		</div>
+	</div>
+</div>
+
+<div class="backdrop hidden"></div>
+<div class="settings-window-container hidden">
+	<div class="window">
+
 	</div>
 </div>

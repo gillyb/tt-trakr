@@ -50,6 +50,10 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 	$scope.closeWindow = function() {
 		win.close();
 	};
+	$scope.openSettings = function() {
+		$('.backdrop').removeClass('hidden');
+		$('.settings-window-container').removeClass('hidden');
+	};
 
 	function initWindow() {
 		$('.running-tasks-container').delegate('.running-task', 'mouseover', function() {
