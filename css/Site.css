@@ -3,17 +3,17 @@ body { overflow:hidden; }
 
 .main-container { margin:0; padding:0; font-family:Helvetica; }
 
-.create-task-container { height:60px; background-color:#eee; padding:10px; border-bottom:solid 1px #ccc; }
-.create-task-container .input-wrapper { margin-right:100px; }
-.create-task-container input { height:40px; padding:10px; font-size:20px; width:100%; }
-.create-task-container #create-task { height:40px; vertical-align:top; margin:0 10px; padding:8px 26px 0 26px; }
+.create-task-container { height:50px; background-color:#eee; padding:10px; border-bottom:solid 1px #ccc; }
+.create-task-container .input-wrapper { margin-right:66px; }
+.create-task-container input { height:30px; padding:4px; font-size:14px; width:100%; font-weight:bold; }
+.create-task-container #create-task { height:30px; vertical-align:top; margin:0 10px; padding:6px 14px 0 14px; font-size:14px; }
 
 /* 56BAEC, B4D8E7 */
 .running-tasks-container {  }
-.running-tasks-container .running-task { padding:10px; font-size:20px; border-bottom:solid 1px #ccc; position:relative; }
+.running-tasks-container .running-task { padding:4px; font-size:20px; border-bottom:solid 1px #ccc; position:relative; }
 .running-tasks-container .running-task:nth-child(even) { background-color:#56BAEC; }
 .running-tasks-container .running-task:nth-child(odd) { background-color:#B4D8E7; }
-.running-tasks-container .running-task .status { cursor:pointer; }
+.running-tasks-container .running-task .status { cursor:pointer; font-size:16px; margin-left:5px; }
 .running-tasks-container .running-task .name {  }
 .running-tasks-container .running-task .time-elapsed {  }
 .running-tasks-container .running-task .mark-as-done { font-size:12px; position:absolute; right:100px; bottom:12px; text-decoration:underline; cursor:pointer; }
