@@ -51,6 +51,32 @@
 <div class="backdrop hidden"></div>
 <div class="settings-window-container hidden">
 	<div class="window">
-
+		<div class="title">SETTINGS</div>
+		<div class="settings-form">
+			<div class="field">
+				<input type="checkbox" id="always-on-top">
+				<span>Always on top</span>
+			</div>
+			<div class="field">
+				<input type="checkbox" id="show-seconds">
+				<span>Show seconds</span>
+			</div>
+			<div class="field">
+				<input type="checkbox" id="stop-tasks-on-close">
+				<span>Stop all tasks when closing</span>
+			</div>
+			<div class="field">
+				<input type="checkbox" id="run-task-immediately">
+				<span>Start running task when created</span>
+			</div>
+			<div class="field">
+				<input type="checkbox" id="show-done">
+				<span>Show tasks marked done</span>
+			</div>
+		</div>
+		<div class="form-actions">
+			<span class="btn btn-default" ng-click="closeSettings()">Cancel</span>
+			<span class="btn btn-primary" ng-click="saveSettings()">Save</span>
+		</div>
 	</div>
 </div>
