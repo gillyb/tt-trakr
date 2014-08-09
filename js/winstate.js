@@ -145,6 +145,11 @@ win.window.addEventListener('resize', function () {
 
         dumpWindowState();
 
+        // set the height of the tasks container
+        var viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        var fixedAreaHeight = $('.window-header').height() + $('.create-task-container').height();
+        $('.all-tasks-container').height(viewportHeight - fixedAreaHeight);
+
     }, 500);
 }, false);
 

@@ -1,4 +1,6 @@
 
+body { overflow:hidden; }
+
 .main-container { margin:0; padding:0; font-family:Helvetica; }
 
 .create-task-container { height:60px; background-color:#eee; padding:10px; border-bottom:solid 1px #ccc; }
@@ -27,3 +29,5 @@
 .window-header .minimize { background-color:transparent; display:inline-block; width:24px; height:22px; color:#ccc;padding:2px 5px; cursor:pointer; margin-top:-1px;}
 .window-header .minimize i { margin-top:5px; }
 .window-header .minimize:hover { background-color:#ccc; color:#fff; }
+
+.all-tasks-container { overflow-x:hidden; overflow-y:scroll; }

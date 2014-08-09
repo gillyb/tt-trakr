@@ -18,23 +18,25 @@
 	</div>
 </div>
 
-<div class="running-tasks-container">
-	<div class="running-task" ng-repeat="task in RunningTasks" data-task-id="task.id">
-		<span class="status" ng-click="toggleTaskStatus(task.id)">
-			<i class="glyphicon" ng-class="{'glyphicon-pause':task.running, 'glyphicon-play':!task.running}"></i>
-		</span>
-		<span class="name" ng-bind-template="{{task.title}}"></span>
-		<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
-		<span class="mark-as-done pull-right hidden" ng-click="markAsDone(task.id)">Mark as done</span>
+<div class="all-tasks-container">
+	<div class="running-tasks-container">
+		<div class="running-task" ng-repeat="task in RunningTasks" data-task-id="task.id">
+			<span class="status" ng-click="toggleTaskStatus(task.id)">
+				<i class="glyphicon" ng-class="{'glyphicon-pause':task.running, 'glyphicon-play':!task.running}"></i>
+			</span>
+			<span class="name" ng-bind-template="{{task.title}}"></span>
+			<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
+			<span class="mark-as-done pull-right hidden" ng-click="markAsDone(task.id)">Mark as done</span>
+		</div>
 	</div>
-</div>
-<div class="container-title" ng-if="DoneTasks.length > 0">
-	Done
-</div>
-<div class="done-tasks-container">
-	<div class="done-task" ng-repeat="task in DoneTasks" data-task-id="task.id">
-		<span class="strikethrough"></span>
-		<span class="name" ng-bind-template="{{task.title}}"></span>
-		<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
+	<div class="container-title" ng-if="DoneTasks.length > 0">
+		Done
+	</div>
+	<div class="done-tasks-container">
+		<div class="done-task" ng-repeat="task in DoneTasks" data-task-id="task.id">
+			<span class="strikethrough"></span>
+			<span class="name" ng-bind-template="{{task.title}}"></span>
+			<span class="time-elapsed pull-right" ng-bind-template="{{task.timeElapsed}}"></span>
+		</div>
 	</div>
 </div>
