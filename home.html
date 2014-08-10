@@ -28,12 +28,12 @@
 				<i class="glyphicon" ng-class="{'glyphicon-pause':task.running, 'glyphicon-play':!task.running}"></i>
 			</span>
 			<span class="name" ng-bind-template="{{task.title}}"></span>
-			<span class="seconds-elapsed pull-right" ng-bind-template="{{':' + task.seconds}}"></span>
+			<span class="seconds-elapsed pull-right" ng-if="!Settings.hideSeconds" ng-bind-template="{{':' + task.seconds}}"></span>
 			<span class="time-elapsed pull-right" ng-bind-template="{{task.hours + ':' + task.minutes}}"></span>
 			<span class="mark-as-done pull-right hidden" ng-click="markAsDone(task.id)">Done</span>
 		</div>
 	</div>
-	<div class="container-title" ng-if="DoneTasks.length > 0">
+	<div class="container-title" ng-if="!Settings.hideDoneTasks && DoneTasks.length > 0">
 		Done
 	</div>
 	<div class="done-tasks-container">

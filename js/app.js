@@ -1,5 +1,5 @@
 
-var app = angular.module('trakrApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngTouch', 'TaskManagerService']);
+var app = angular.module('trakrApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngTouch', 'TaskManagerService', 'SettingsService']);
 
 app.factory('CacheProvider', function ($cacheFactory) {
     // we can add a cache limit here if we'll need to

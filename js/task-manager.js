@@ -1,15 +1,17 @@
 
 var taskService = angular.module('TaskManagerService', []);
 
-taskService.factory('TaskManager', ['$http', '$q', function($http, $q) {
+taskService.factory('TaskManager', ['$http', '$q', 'Settings', function($http, $q, Settings) {
 
 	var fs = require('fs');
+	var settings = Settings.get();
 
 	var taskManager = {
 		tasks: [],
 		newTask: function(taskName) {
 			var t = new Task(taskName);
-			t.start();
+			if (settings.startRunningImmediately)
+				t.start();
 			this.tasks.push(t);
 
 			this.saveTasks();

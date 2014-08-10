@@ -4,13 +4,17 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 	var nw = require('nw.gui');
 	var win = nw.Window.get();
 
+	$scope.Settings = Settings.get();
+
 	// TODO: extract this to some global directive
 	win.on('close', function() {
-		TaskManager.tasks.forEach(function(task) {
-			task.pause();
-		});
+		if ($scope.Settings.stopTasksOnClose) {
+			TaskManager.tasks.forEach(function(task) {
+				task.pause();
+			});
+		}
 		TaskManager.saveTasks();
-		this.close(true);
+		this.close();
 	});
 
 	$('#new-task').keypress(function(e) {
@@ -91,6 +95,8 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		$scope.RunningTasks = runningTasks;
 		$scope.DoneTasks = doneTasks;
 	}
+
+	Settings.applySettings(win);
 
 	TaskManager.loadTasks();
 	$interval(refreshTasks, 1000);

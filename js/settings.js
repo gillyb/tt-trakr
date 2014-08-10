@@ -7,6 +7,8 @@ settingsService.factory('Settings', ['$http', '$q', 'CacheProvider', function($h
 	var cacheKey = '__SETTINGS__';
 	var settingsFile = './settings.dat';
 
+	var self = this;
+
 	var defaultSettings = {
 		alwaysOnTop: true,
 		hideSeconds: false,
@@ -22,7 +24,7 @@ settingsService.factory('Settings', ['$http', '$q', 'CacheProvider', function($h
 		// check if the settings are in the cache
 		settings = CacheProvider.get(cacheKey);
 		if (settings) {
-			this._settings = settings;
+			self._settings = JSON.parse(settings);
 			return;
 		}
 
@@ -31,7 +33,7 @@ settingsService.factory('Settings', ['$http', '$q', 'CacheProvider', function($h
 		try {
 			buffer = fs.readFileSync(settingsFile);
 			CacheProvider.put(cacheKey, buffer.toString());
-			this._settings = JSON.parse(buffer.toString());
+			self._settings = JSON.parse(buffer.toString());
 			return;
 		}
 		catch (e) {
@@ -41,7 +43,7 @@ settingsService.factory('Settings', ['$http', '$q', 'CacheProvider', function($h
 				var fd = fs.openSync(settingsFile, 'w+');
 				fs.writeSync(fd, buffer, 0, buffer.length, 0);
 				CacheProvider.put(cacheKey, buffer.toString());
-				this._settings = defaultSettings;
+				self._settings = defaultSettings;
 				return;
 			}
 
@@ -53,13 +55,18 @@ settingsService.factory('Settings', ['$http', '$q', 'CacheProvider', function($h
 	var settings = {
 		get: function() {
 			loadSettings();
-			return this._settings;
+			return self._settings;
 		},
 		saveSettings: function() {
-			var buffer = new Buffer(JSON.stringify(this._settings));
+			var buffer = new Buffer(JSON.stringify(self._settings));
 			var fd = fs.openSync(settingsFile, 'w+');
 			fs.writeSync(fd, buffer, 0, buffer.length, 0);
+			CacheProvider.remove(cacheKey);
 		},
+		applySettings: function(win) {
+			var settings = this.get();
+			win.setAlwaysOnTop(settings.alwaysOnTop);
+		}
 	};
 
 	return settings;
