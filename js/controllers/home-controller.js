@@ -1,5 +1,5 @@
 
-app.controller('HomeController', function($scope, $http, $location, $routeParams, $interval, $timeout, TaskManager) {
+app.controller('HomeController', function($scope, $http, $location, $routeParams, $interval, $timeout, TaskManager, Settings) {
 
 	var nw = require('nw.gui');
 	var win = nw.Window.get();
@@ -50,9 +50,18 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 	$scope.closeWindow = function() {
 		win.close();
 	};
+
 	$scope.openSettings = function() {
 		$('.backdrop').removeClass('hidden');
 		$('.settings-window-container').removeClass('hidden');
+	};
+	$scope.closeSettings = function() {
+		$('.backdrop').addClass('hidden');
+		$('.settings-window-container').addClass('hidden');
+	};
+	$scope.saveSettings = function() {
+		
+		$scope.closeSettings();
 	};
 
 	function initWindow() {
