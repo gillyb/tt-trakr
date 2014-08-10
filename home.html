@@ -36,7 +36,7 @@
 	<div class="container-title" ng-if="!Settings.hideDoneTasks && DoneTasks.length > 0">
 		Done
 	</div>
-	<div class="done-tasks-container">
+	<div class="done-tasks-container" ng-if="!Settings.hideDoneTasks">
 		<div class="done-task" ng-repeat="task in DoneTasks" data-task-id="task.id">
 			<span class="strikethrough"></span>
 			<span class="name" ng-bind-template="{{task.title}}"></span>
@@ -58,8 +58,8 @@
 				<span>Always on top</span>
 			</div>
 			<div class="field">
-				<input type="checkbox" id="show-seconds">
-				<span>Show seconds</span>
+				<input type="checkbox" id="hide-seconds">
+				<span>Hide seconds</span>
 			</div>
 			<div class="field">
 				<input type="checkbox" id="stop-tasks-on-close">
@@ -70,8 +70,8 @@
 				<span>Start running task when created</span>
 			</div>
 			<div class="field">
-				<input type="checkbox" id="show-done">
-				<span>Show tasks marked done</span>
+				<input type="checkbox" id="hide-done">
+				<span>Hide tasks marked done</span>
 			</div>
 		</div>
 		<div class="form-actions">

@@ -56,6 +56,13 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 	};
 
 	$scope.openSettings = function() {
+		var settings = Settings.get();
+		$('#always-on-top').prop('checked', settings.alwaysOnTop);
+		$('#hide-seconds').prop('checked', settings.hideSeconds);
+		$('#stop-tasks-on-close').prop('checked', settings.stopTasksOnClose);
+		$('#run-task-immediately').prop('checked', settings.startRunningImmediately);
+		$('#hide-done').prop('checked', settings.hideDoneTasks);
+
 		$('.backdrop').removeClass('hidden');
 		$('.settings-window-container').removeClass('hidden');
 	};
@@ -64,21 +71,30 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 		$('.settings-window-container').addClass('hidden');
 	};
 	$scope.saveSettings = function() {
-		
+		var settings = Settings.get();
+		settings.alwaysOnTop = $('#always-on-top').is(':checked');
+		settings.hideSeconds = $('#hide-seconds').is(':checked');
+		settings.stopTasksOnClose = $('#stop-tasks-on-close').is(':checked');
+		settings.startRunningImmediately = $('#run-task-immediately').is(':checked');
+		settings.hideDoneTasks = $('#hide-done').is(':checked');
+		Settings.saveSettings();
+		Settings.applySettings(win);
+
+		$scope.Settings = Settings.get();
 		$scope.closeSettings();
 	};
 
 	function initWindow() {
-		$('.running-tasks-container').delegate('.running-task', 'mouseover', function() {
+		$(document).delegate('.running-tasks-container .running-task', 'mouseover', function() {
 			$(this).find('.mark-as-done').removeClass('hidden');
 		})
-		$('.running-tasks-container').delegate('.running-task', 'mouseout', function() {
+		$(document).delegate('.running-tasks-container .running-task', 'mouseout', function() {
 			$(this).find('.mark-as-done').addClass('hidden');
 		});
-		$('.done-tasks-container').delegate('.done-task', 'mouseover', function() {
+		$(document).delegate('.done-tasks-container .done-task', 'mouseover', function() {
 			$(this).find('.remove-task').removeClass('hidden');
 		});
-		$('.done-tasks-container').delegate('.done-task', 'mouseout', function() {
+		$(document).delegate('.done-tasks-container .done-task', 'mouseout', function() {
 			$(this).find('.remove-task').addClass('hidden');
 		});
 	}
