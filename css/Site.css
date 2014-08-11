@@ -11,8 +11,8 @@ body { overflow:hidden; }
 /* 56BAEC, B4D8E7 */
 .running-tasks-container {  }
 .running-tasks-container .running-task { padding:4px; font-size:20px; border-bottom:solid 1px #ccc; position:relative; }
-.running-tasks-container .running-task:nth-child(even) { background-color:#56BAEC; }
-.running-tasks-container .running-task:nth-child(odd) { background-color:#B4D8E7; }
+.running-tasks-container .running-task:nth-child(even) { background-color:#D2F2FF; }
+.running-tasks-container .running-task:nth-child(odd) { background-color:#B3E6FF; }
 .running-tasks-container .running-task .status { cursor:pointer; font-size:16px; margin-left:5px; }
 .running-tasks-container .running-task .name {  }
 .running-tasks-container .running-task .time-elapsed {  }
