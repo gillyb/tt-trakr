@@ -20,14 +20,16 @@ app.controller('HomeController', function($scope, $http, $location, $routeParams
 	$('#new-task').keypress(function(e) {
 		if (e.keyCode == 13) {
 			$scope.newTask();
-			$('#new-task').val('');
-			$('#new-task').focus();
 		}
 	});
 
 	$scope.newTask = function() {
-		var taskName = $('#new-task').val();
+		var taskName = $('#new-task').val().trim();
+		if (taskName == '') return;
+
 		TaskManager.newTask(taskName);
+		$('#new-task').val('');
+		$('#new-task').focus();
 		refreshTasks();
 	};
 
