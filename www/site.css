@@ -32,3 +32,5 @@ h2 { color:#8E8E93; font-size:38px; font-weight:normal; margin-top:20px; }
 .button.trial:hover { background-color:#25AF3C; }
 .button.buy { background-color:#5ac8fa; cursor:pointer; }
 .button.buy:hover { background-color:#209CD4; }
+
+.header { font-size:28px; color:#000; margin-top:100px; }
